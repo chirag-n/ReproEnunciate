@@ -1,0 +1,46 @@
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.18.1.xsd">
+
+    <api-classes>
+        <exclude pattern="com.ex.api.**"/>
+<!--        increase the version below, for me it works till its less than v30-->
+<!--        as we keep on increasing the version, the slower enunciate behaves (or it hangs)-->
+<!--        run mvn clean -X enunciate:docs to test-->
+        <include pattern="com.ex.api.v60.**"/>
+    </api-classes>
+
+    <description>
+        <![CDATA[
+      <h1>Simple API</h1>
+      <p>Basic API documentation for debugging.</p>
+    ]]>
+    </description>
+    <modules>
+        <docs disabled="false"
+              splashPackage="com.ex.api"
+              title="Ex API"
+              apiRelativePath="../../api/${apiVersionString}"
+              includeDefaultDownloads="false"
+              includeExampleXml="false" />
+        <!-- provider modules -->
+        <jaxb disabled="true"/>
+        <jackson disabled="false" dateFormat="string"/>
+        <jackson1 disabled="true"/>
+        <jaxws disabled="true"/>
+        <jaxrs disabled="false" groupBy="annotation" />/>
+        <spring-web disabled="true"/>
+        <!-- non-provider modules -->
+        <c-xml-client disabled="true"/>
+        <csharp-xml-client disabled="true"/>
+        <java-xml-client disabled="true"/>
+        <java-json-client disabled="true"/>
+        <javascript-client disabled="true"/>
+        <gwt-json-overlay disabled="true"/>
+        <obj-c-xml-client disabled="true"/>
+        <php-xml-client disabled="true"/>
+        <php-json-client disabled="true"/>
+        <ruby-json-client disabled="true"/>
+        <swagger disabled="false" basePath="/api/${apiVersionString}"/>
+        <idl disabled="false" />
+    </modules>
+</enunciate>
